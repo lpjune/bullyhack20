@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 #{hash}: #{block.hash}
+
+  p #[strong prevHash:] #{block.prevHash}
+  p #[strong Cost:] #{block.cost}
+  p #[strong First Name:] #{block.firstName}
+  p #[strong Last Name:] #{block.lastName}
+  p #[strong Date:] #{block.date}
+
+  hr
+  p
+    a(href=block.url+'/delete') Delete Block
+  p
+    a(href=block.url+'/update') Update Block

@@ -3,38 +3,37 @@
 
 <head>
     <title>Create a Class</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Our custom stylesheets -->
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <!-- Pull in all style imports -->
+    <%- include("../partials/styling.ejs") %>
 </head>
 
 <body>
+    <!-- Pull in the navbar -->
     <%- include("../partials/navbar.ejs") %>
+
     <div class="mainContent container mt-5">
         <form class="card">
+          <!-- Title of form -->
           <h4 class="card-header">Create a class chat</h4>
 
           <div class="card-body">
             <div class="card-text">
+              <!-- Form contents -->
               <div class="form-group">
                 <label for="className"> Class Name </label>
                 <input type="text" class="form-control" id="className" aria-describedby="className" placeholder="Enter class name">
                 <small id="className" class="form-text text-muted">This is how students will find your class</small>
               </div>
+              <!-- Submit and cancel buttons -->
               <button type="submit" class="btn btn-primary">Create</button>
             </div>
             
           </div>
         </form>
     </div>
+    
+    <!-- Pull in theme selector footer -->
+    <%- include("../partials/themeSelector.ejs") %>
 
     <!-- Firebase -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->

@@ -12,6 +12,10 @@ app.get('/', function(req, res){
     res.render(__dirname + '/views/pages/index.ejs');
 });
 
+app.get('/createClass', function(req, res){
+  res.render(__dirname + '/views/pages/createClass.ejs');
+});
+
 io.on('connection', function(socket){
     console.log('a user connected');
     

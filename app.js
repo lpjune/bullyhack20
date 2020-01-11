@@ -23,5 +23,5 @@ io.on('connection', function(socket){
 });
 
 http.listen(process.env.PORT || 3000, function(){
-    console.log('Server running at http://${hostname}:${port}/', hostname, port);
+    console.log('Server running at http://' + hostname + ':' + port);
 });

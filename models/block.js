@@ -3,11 +3,14 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var BlockSchema = new Schema({
-  name: { type: String, required: true },
-  location: { type: String, required: true },
-  date: { type: String, required: false },
-  description: { type: String, required: true },
-  organizer: { type: String, required: true },
+  index: { type: String, required: true },
+  hash: { type: String, required: true },
+  prevHash: { type: String, required: false },
+  cost: { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  date: { type: String, required: true },
+  hidden: { type: Boolean, required: true}
 });
 
 // Virtual for this block instance URL.

@@ -20,14 +20,18 @@
     <%- include("../partials/navbar.ejs") %>
     <div class="mainContent container mt-5">
         <form class="card">
+          <h4 class="card-header">Create a class chat</h4>
+
           <div class="card-body">
-            <h4 class="card-title">Create a class chat</h4>
-            <div class="form-group card-text">
-              <label for="className"> Class Name </label>
-              <input type="text" class="form-control" id="className" aria-describedby="className" placeholder="Enter class name">
-              <small id="className" class="form-text text-muted">This is how students will find your class</small>
+            <div class="card-text">
+              <div class="form-group">
+                <label for="className"> Class Name </label>
+                <input type="text" class="form-control" id="className" aria-describedby="className" placeholder="Enter class name">
+                <small id="className" class="form-text text-muted">This is how students will find your class</small>
+              </div>
+              <button type="submit" class="btn btn-primary">Create</button>
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            
           </div>
         </form>
     </div>

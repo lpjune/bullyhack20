@@ -8,9 +8,8 @@ let hostname = '127.0.0.1';
 let port = 3000;
 
 app.use(express.static(__dirname));
-
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/views/pages/index.html');
+    res.render(__dirname + '/views/pages/index.ejs');
 });
 
 io.on('connection', function(socket){

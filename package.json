@@ -4,6 +4,7 @@
   "description": "A webapp designed to help me study",
   "main": "index.js",
   "dependencies": {
+    "ejs": "^3.0.1",
     "express": "^4.17.1",
     "firebase": "^7.5.2",
     "heroku": "^7.35.0",

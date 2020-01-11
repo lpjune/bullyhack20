@@ -1,0 +1,22 @@
+<div class="container-fluid mt-3 text-right">
+  <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="darkModeSwitch" onchange="selectTheme(this.checked)">
+      <label class="custom-control-label font-weight-bold" for="darkModeSwitch">Toggle Dark Mode</label>
+  </div>
+</div>
+
+<!-- Persist theme -->
+<script>
+    let chosenTheme = window.localStorage.getItem("theme");
+    if (chosenTheme == undefined)
+    {
+        window.localStorage.setItem("theme", "light");
+        chosenTheme = "light";
+    }
+    
+    document.getElementById("dark-theme").disabled = (chosenTheme != "dark");
+    document.getElementById("light-theme").disabled = (chosenTheme != "light");
+    document.getElementById("darkModeSwitch").checked = (chosenTheme == "dark");
+</script>
+
+<script src="/js/themeToggler.js"></script>

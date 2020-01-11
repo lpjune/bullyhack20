@@ -8,12 +8,18 @@ const io = require('socket.io')(http);
 let hostname = '127.0.0.1';
 let port = 3000;
 
-
-
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
+app.use(express.static('public'));
+
 // use res.render to load up an ejs view file
+
+// login page
+app.get('/login', function(req, res) {
+    res.render('pages/login');
+});
+
 
 // index page 
 app.get('/', function(req, res) {

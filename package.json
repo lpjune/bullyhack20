@@ -7,11 +7,12 @@
     "express": "^4.17.1",
     "firebase": "^7.5.2",
     "heroku": "^7.35.0",
+    "nodemon": "^2.0.2",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",

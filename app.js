@@ -20,8 +20,8 @@ app.get('/', function(req, res) {
     res.render('pages/index');
 });
 
-app.get('/createClass', function(req, res){
-  res.render(__dirname + '/views/pages/createClass.ejs');
+app.get('/createCourse', function(req, res){
+  res.render(__dirname + '/views/pages/createCourse.ejs');
 });
 
 // about page 

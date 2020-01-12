@@ -5,7 +5,6 @@ var partials = require('express-partials');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
-let hostname = '127.0.0.1';
 let port = 3000;
 
 // set the view engine to ejs

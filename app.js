@@ -35,9 +35,8 @@ app.get('/login', function (req, res) {
 });
 
 // search courses
-app.get('/search', function(req, res) {
-  console.log(req.query);
-  let searchQuery = req.query['search'];
+app.get('/search/:searchQuery', function(req, res) {
+  let searchQuery = req.params.searchQuery;
   let foundCourses = {};
 
   let ref = firebase.database().ref("/courses/");
@@ -46,7 +45,6 @@ app.get('/search', function(req, res) {
           for (const courseKey in allCourses) {
             if (courseMatches(searchQuery, courseKey, allCourses)) {
               foundCourses[courseKey] = allCourses[courseKey];
-              // console.log(foundCourses[courseKey]);
             }
           }
       }).then(result => {

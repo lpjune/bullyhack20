@@ -15,16 +15,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/claudiaareneee/AlgorithmStudySite.git"
-  },
-  "author": "Claudia Nelson",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/claudiaareneee/AlgorithmStudySite/issues"
-  },
-  "homepage": "https://github.com/claudiaareneee/AlgorithmStudySite#readme"
+  "engines": {
+    "node": "10.x"
+  }
 }

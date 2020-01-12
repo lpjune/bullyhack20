@@ -45,14 +45,29 @@
                 console.log("testing");
                 // console.log( <%- JSON.stringify(values) %>);
             </script>
-                <%- include('../partials/courseDetailsCard', {title: values.name, content: values.teacher, backgroundColor: "bg-danger", code: id}) %>   
-                
-                <% Object.keys(values).forEach(function(prop) { console.log(prop) });%>
-                <% Object.keys(values.messages).forEach(function(prop) { %>
-                    <%- include('../partials/messageCard', {content: values.messages[prop].question}) %>           
-                <% });%>
-            
-            
+            <%- include('../partials/courseDetailsCard', {title: values.name,
+            content: values.teacher, backgroundColor: "bg-danger", code: id}) %>
+            <% Object.keys(values).forEach(function(prop) { console.log(prop)
+            });%> <% Object.keys(values.messages).forEach(function(prop) { %>
+            <%- include('../partials/messageCard', {content:
+            values.messages[prop].question}) %> <% });%>
+
+            <!-- form -->
+            <div class="card-body py-1">
+                <form class="form-inline">
+                    <div class="form-group mb-2">
+                        <label for="questionInput" class="sr-only">Question</label>
+                        <input
+                            type="text"
+                            class="form-control-plaintext border"
+                            id="questionInput"
+                            style="width: 100%;"
+                        />
+                    </div>
+                    <button type="button" class="btn btn-primary mb-2" onclick="askQuestion('<%- id %>')">Ask!</button>
+                </form>
+            </div>
+
             <!-- <button onclick="getAllCourses()">Get Course</button> -->
         </div>
 
@@ -70,6 +85,7 @@
         <!-- Pull needed files for bootstrap -->
         <%- include("../partials/bootstrap.ejs") %>
 
+        <script src="/js/courseDetails.js"></script>
         <script src="/js/firebaseHelper.js"></script>
     </body>
 </html>

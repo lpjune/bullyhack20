@@ -102,9 +102,6 @@ app.get("/createCourse", function (req, res) {
 app.get("/course/:id", function (req, res) {
     let ref = firebase.database().ref("/courses/" + req.params.id + "/");
     let promise = ref.once("value").then(snapshot => {
-        // console.log(snapshot.val());
-        // return snapshot.val();
-        console.log(snapshot.val());
         res.render(__dirname + "/views/pages/courseDetails.ejs", { values: snapshot.val(), id: req.params.id });
     });
 })

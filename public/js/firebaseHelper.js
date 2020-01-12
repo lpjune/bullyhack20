@@ -1,5 +1,4 @@
 /* jshint esversion: 6 */
-console.log("test");
 
 // Set the configuration for your app
 // TODO: Replace with your project's config object
@@ -22,7 +21,6 @@ var database = firebase.database();
 function getCourse(id) {
     let ref = firebase.database().ref("/courses/" + id);
     ref.once("value").then(snapshot => {
-        console.log(snapshot.val());
         //Returns an object with course
         return snapshot.val();
     });
@@ -31,7 +29,6 @@ function getCourse(id) {
 function getAllCourses() {
     let ref = firebase.database().ref("/courses/");
     let promise = ref.once("value").then(snapshot => {
-        // console.log(snapshot.val());
         return snapshot.val();
     });
     return promise;
@@ -63,8 +60,6 @@ function addUser(user) {
 }
 
 function addCourseToUser(userId, courseId) {
-    console.log(userId);
-    console.log(courseId);
     firebase
         .database()
         .ref("users/" + userId + "/courses")

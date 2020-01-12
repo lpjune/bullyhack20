@@ -33,9 +33,11 @@
                 console.log("testing");
             </script>
             <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2">
-              <% Object.keys(values).forEach(function(prop) { %>
-                  <%- include('../partials/courseCard', {header: values[prop].name, content: values[prop].teacher, backgroundColor: "bg-secondary", code: prop}) %>
-              <% });%>
+              <% if(locals.value) {%>
+                <% Object.keys(values).forEach(function(prop) { %>
+                    <%- include('../partials/courseCard', {header: values[prop].name, content: values[prop].teacher, backgroundColor: "bg-secondary", code: prop}) %>
+                <% });%>
+              <% } %>
             </div>
             <!-- <button onclick="getAllCourses()">Get Course</button> -->
         </div>

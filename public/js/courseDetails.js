@@ -4,7 +4,7 @@ function askQuestion(id) {
     console.log(question);
 
     let pattern = /\w+/g;
-    if (pattern.test(caller.value)){
-      postQuestionToCourse(id, question);
+    if (pattern.test(question)) {
+        postQuestionToCourse(id, question);
     }
 }

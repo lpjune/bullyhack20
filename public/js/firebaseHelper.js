@@ -71,10 +71,13 @@ function addUser(user) {
 
 // postQuestion
 function postQuestionToCourse(id, question) {
+    var newPostKey = firebase.database().ref().child('posts').push().key;
     firebase
         .database()
-        .ref("courses/" + id + "/messages")
+        .ref("courses/" + id + "/messages/" + newPostKey)
         .set({
+            question: question,
+            likes: 1
         });
 }
 

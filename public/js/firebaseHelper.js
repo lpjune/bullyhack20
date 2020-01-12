@@ -87,7 +87,7 @@ function postQuestionToCourse(id, question) {
 function likeQuestion(courseId, questionId) {
     var ref = firebase
         .database()
-        .ref("courses/" + courseId + "/messages/" + questionId).child("likes")
+        .ref("courses/" + courseId + "/messages/" + questionId).child("likes");
     ref.transaction(function (likes) {
         if (likes) {
             likes = likes + 1;

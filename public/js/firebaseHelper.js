@@ -70,7 +70,13 @@ function addUser(user) {
 }
 
 // postQuestion
-function postQuestionToCourse(id) {}
+function postQuestionToCourse(id, question) {
+    firebase
+        .database()
+        .ref("courses/" + id + "/messages")
+        .set({
+        });
+}
 
 function likeQuestion(id, question) {
     var ref = firebase

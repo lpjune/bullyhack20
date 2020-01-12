@@ -59,19 +59,27 @@ function getQuestionForCourse(id) {
 }
 
 function addUser(user) {
-    firebase
-        .database()
-        .ref("users/" + user.uid)
-        .set({
-            displayName: user.displayName,
-            email: user.email,
-            courses: []
-        });
+    let promise = firebase.database().ref("/users/" + user.uid).once("value").then(snapshot => {
+        if (!snapshot.val()) {
+            firebase
+                .database()
+                .ref("users/" + user.uid)
+                .set({
+                    displayName: user.displayName,
+                    email: user.email,
+                    courses: []
+                });
+        }
+    });
 }
 
 // postQuestion
 function postQuestionToCourse(id, question) {
-    var newPostKey = firebase.database().ref().child('posts').push().key;
+    var newPostKey = firebase
+        .database()
+        .ref()
+        .child("posts")
+        .push().key;
     firebase
         .database()
         .ref("courses/" + id + "/messages/" + newPostKey)
@@ -89,10 +97,19 @@ function likeQuestion(id, question) {
         .child("messages")
         .child("message")
         .child("likes");
-    ref.transaction(function(likes) {
+    ref.transaction(function (likes) {
         if (likes) {
             likes = likes + 1;
         }
         return likes;
     });
+}
+
+function addCourseToUser(userId, courseId) {
+    firebase
+        .database()
+        .ref("users/" + userId + "/courses")
+        .set({
+            [courseId]: true,
+        });
 }

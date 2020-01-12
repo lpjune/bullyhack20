@@ -14,6 +14,12 @@
 
     <!-- Our custom stylesheets -->
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+    <script>
+    if(!sessionStorage.getItem('isLoggedIn')){
+        window.location = '/login';
+    }
+    </script>
 </head>
 
 <body>

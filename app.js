@@ -48,16 +48,16 @@ app.get('/search/:searchQuery', function(req, res) {
             }
           }
       }).then(result => {
-        res.render("partials/searchContents", { values: foundCourses });
+        res.render("partials/courseListing", { values: foundCourses });
       });
 })
 
 function courseMatches(searchQuery, courseKey, allCourses) {
-  if (courseKey.includes(searchQuery)) {
+  if (courseKey.toLowerCase().includes(searchQuery)) {
     return true;
   } else {
     let course = allCourses[courseKey];
-    if (course.teacher.includes(searchQuery) || course.name.includes(searchQuery)) {
+    if (course.teacher.toLowerCase().includes(searchQuery) || course.name.includes(searchQuery)) {
       return true;
     }
   }
@@ -77,7 +77,7 @@ app.get("/user/:uid", function (req, res) {
         let ref = firebase.database().ref("/courses/");
 
         if(userCourses == null){
-            res.render("pages/index", {values: {}});
+            res.render("partials/courseListing", {values: {}});
             return;
         } 
 
@@ -89,7 +89,7 @@ app.get("/user/:uid", function (req, res) {
                 }
             }
         }).then(result => {
-            res.render("pages/index", { values: coursesDetails });
+            res.render("partials/courseListing", { values: coursesDetails });
         });
     });
     // return promise;

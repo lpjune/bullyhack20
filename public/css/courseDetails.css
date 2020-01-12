@@ -5,6 +5,13 @@
 .inline-block {
     display: inline-block;
 }
+.dashboard{
+    padding-bottom: 9em;
+}
+
+.card-footer{
+    padding: 0px;
+}
 
 .main {
     padding-top: 3vh;
@@ -33,7 +40,16 @@
 }
 
 .float-right{
-    float: right;
+    float: inline-end;
+}
+
+.ask-btn{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.ask-field{
+    padding-bottom: 1em;
 }
 
 .float-left{

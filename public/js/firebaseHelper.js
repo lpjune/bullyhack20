@@ -62,6 +62,17 @@ function addUser(user) {
     });
 }
 
+function addCourseToUser(userId, courseId) {
+    console.log(userId);
+    console.log(courseId);
+    firebase
+        .database()
+        .ref("users/" + userId + "/courses")
+        .update({
+            [courseId]: true,
+        });
+}
+
 // postQuestion
 function postQuestionToCourse(id, question) {
     var newPostKey = firebase
@@ -90,11 +101,4 @@ function likeQuestion(courseId, questionId) {
     });
 }
 
-function addCourseToUser(userId, courseId) {
-    firebase
-        .database()
-        .ref("users/" + userId + "/courses")
-        .set({
-            [courseId]: true,
-        });
-}
+

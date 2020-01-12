@@ -1,7 +1,10 @@
-function askQuestion() {
-    let question = document.getElementById("courseCodeInput");
+function askQuestion(id) {
+    let question = document.getElementById("questionInput").value;
+    console.log(id);
+    console.log(question);
 
-    let courseCode = courseCodeInput.value;
-
-
+    let pattern = /\w+/g;
+    if (pattern.test(caller.value)){
+      postQuestionToCourse(id, question);
+    }
 }

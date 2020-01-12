@@ -56,17 +56,15 @@
             <div class="card-body py-1">
                 <form class="form-inline">
                     <div class="form-group mb-2">
-                        <label for="staticEmail2" class="sr-only">Email</label>
+                        <label for="questionInput" class="sr-only">Question</label>
                         <input
                             type="text"
                             class="form-control-plaintext border"
-                            id="staticEmail2"
+                            id="questionInput"
                             style="width: 100%;"
                         />
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">
-                        Ask!
-                    </button>
+                    <button type="button" class="btn btn-primary mb-2" onclick="askQuestion('<%- id %>')">Ask!</button>
                 </form>
             </div>
 
@@ -87,7 +85,7 @@
         <!-- Pull needed files for bootstrap -->
         <%- include("../partials/bootstrap.ejs") %>
 
-        <script src="js/courseDetails.js"></script>
-        <script src="js/firebaseHelper.js"></script>
+        <script src="/js/courseDetails.js"></script>
+        <script src="/js/firebaseHelper.js"></script>
     </body>
 </html>

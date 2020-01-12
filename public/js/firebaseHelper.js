@@ -20,7 +20,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 function getCourse(id) {
-    let ref = firebase.database().ref("/demo/" + id);
+    let ref = firebase.database().ref("/courses/" + id);
     ref.once("value").then(snapshot => {
         console.log(snapshot.val());
         //Returns an object with course
@@ -28,10 +28,19 @@ function getCourse(id) {
     });
 }
 
-function postCourse(userId, name, teacher) {
+function getAllCourses() {
+    let ref = firebase.database().ref("/courses/");
+    ref.once("value").then(snapshot => {
+        console.log(snapshot.val());
+        //Returns an object with course
+        return snapshot.val();
+    });
+}
+
+function postCourse(id, name, teacher) {
     firebase
         .database()
-        .ref("demo/" + userId)
+        .ref("courses/" + id)
         .set({
             name: name,
             teacher: teacher,
@@ -39,5 +48,8 @@ function postCourse(userId, name, teacher) {
 }
 
 // getQuestion
+function getQuestionForCourse(id) {
+    
+}
 
 // postQuestion

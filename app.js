@@ -34,6 +34,30 @@ app.get('/login', function (req, res) {
     res.render('pages/login');
 });
 
+// search courses
+app.get('/search', function(req, res) {
+  let searchQuery = req.query[search];
+
+  let pattern = /\w+/g;
+  if (!pattern.test(searchQuery)) {
+    return;
+  }
+  console.log("Good");
+  let foundCourses = {};
+
+  let ref = firebase.database().ref("/courses/");
+      ref.once('value').then(snapshot => {
+          let allCourses = snapshot.val();
+          for (const courseKey in allCourses) {
+            if (courseMatches(searchQuery, courseKey, allCourses)) {
+              foundCourses[courseKey] = allCourses[courseKey];
+            }
+          }
+      });
+
+  return res.render("");
+})
+
 // index page
 app.get("/", function(req, res) {
     res.render("pages/index");

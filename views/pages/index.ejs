@@ -21,10 +21,9 @@
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                id="search"
             />
-            <button class="btn btn-primary my-2 my-sm-0 col-lg-1 col-2" type="button">
-                Search
-            </button>
+            <button class="btn btn-primary my-2 my-sm-0 col-lg-1 col-2" type="button" onclick="searchForCourse()"> Search </button>
           </form>
         </div>
 
@@ -43,6 +42,8 @@
         </div>
 
         <%- include("../partials/footer.ejs") %>
+
+        <script src="/js/search.js"></script>
 
         <!-- Pull needed files for FireBase -->
         <%- include("../partials/firebase.ejs") %>

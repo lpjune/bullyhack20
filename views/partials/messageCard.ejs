@@ -7,18 +7,18 @@
 
 <!-- This is to be used with row layout, good for responsiveness -->
 <div class="mb-4">
-    <div class="card"><% if(!locals.backgroundColor) locals.backgroundColor="" %>
+    <div class="card-message"><% if(!locals.backgroundColor) locals.backgroundColor="" %>
         
 
         <div class="card-body py-1">
 
             <!-- Main content -->
             <% if(locals.content) {%>
-            <p class="card-text inline-block"><%= content %></p>
+            <p class="card-text-message inline-block"><%= content %></p>
             <% } %>
 
             <a class="inline-block like-button" onclick="location.reload()">
-                <button onclick="likeQuestion('<%-courseId%>', '<%-messageId%>')">
+                <button class="btn-primary" onclick="likeQuestion('<%-courseId%>', '<%-messageId%>')">
                     <img class="like-img" src="https://psmag.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_600/MTI3NTgxNjIxNTQ0MDY1NTAy/facebook-like.webp"></img>
                     <%= likes%>
                 </button>

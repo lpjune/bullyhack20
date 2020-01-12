@@ -21,3 +21,9 @@ This app allows the audience to anonymously post questions or comments during a 
 1. Clone this repository locally
 2. In the cloned directory, execute "npm install" in command line
 3. Execute "npm start" to start serving
+
+---
+
+## Access via posted server
+- Via Heroku at bullyhack20.herokuapp.com
+- Via purhcased domain at handup.online

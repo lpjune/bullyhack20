@@ -1,16 +1,11 @@
-function createCourse(){
-  let newId = firebase.database().child('courses').push().key;
-  let databaseRef = firebase.database().ref('/courses/'+newId);
 
+
+function createCourse() {
   let courseCode = document.getElementById("courseCodeInput").value;
   let courseName = document.getElementById("courseNameInput").value;
   let instructorName = document.getElementById("instructorNameInput").value;
 
-  databaseRef.set({
-    id: courseCode,
-    name: courseName,
-    teacher: instructorName
-  })
+  postCourse(courseCode, courseName, instructorName)
 }
 
 function cancel(){

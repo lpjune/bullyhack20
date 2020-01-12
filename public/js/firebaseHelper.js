@@ -8,7 +8,7 @@ var config = {
     authDomain: "bullyhack20.firebaseapp.com",
     databaseURL: "https://bullyhack20.firebaseio.com",
     projectId: "bullyhack20",
-    storageBucket: "bullyhack20.appspot.com",
+    storageBucket: "bullyhack20.appspot.com"
     // messagingSenderId: "8373032571",
     // appId: "1:8373032571:web:092b74f947433e1f30b4de",
     // measurementId: "G-6484FT1EB9"
@@ -28,20 +28,16 @@ function getCourse(id) {
     });
 }
 
-function postCourse(courseName, teacherName) {
-    let id = firebase
+function postCourse(userId, name, teacher) {
+    firebase
         .database()
-        .child("demo")
-        .push().key;
-    let ref = firebase.database().ref("/demo/" + id);
-
-    ref.set({
-        name: courseName,
-        teacher: teacherName
-    });
+        .ref("demo/" + userId)
+        .set({
+            name: name,
+            teacher: teacher,
+        });
 }
 
 // getQuestion
-
 
 // postQuestion

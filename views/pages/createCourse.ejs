@@ -5,13 +5,15 @@
     <title>Create a Course</title>
     <!-- Pull in all style imports -->
     <%- include("../partials/styling.ejs") %>
+    <link rel="stylesheet" href="css/createCourse.css">
 </head>
 
 <body>
     <!-- Pull in the navbar -->
     <%- include("../partials/navbar.ejs") %>
 
-    <div class="mainContent container mt-5">
+    <div class="scroll mainContent">
+      <div class="container mt-5">
         <form class="card">
           <!-- Title of form -->
           <h4 class="card-header">Create a Course</h4>
@@ -44,6 +46,8 @@
           </div>
         </form>
     </div>
+    </div>
+    
     
     <!-- Pull in theme selector footer -->
     <%- include("../partials/footer.ejs") %>

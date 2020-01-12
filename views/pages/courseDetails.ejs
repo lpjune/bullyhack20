@@ -1,105 +1,94 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Help Me</title>
 
-        <!-- Bootstrap -->
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-        />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<head>
+    <title>Help Me</title>
 
-        <!-- Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css?family=Lato&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="/css/courseDetails.css"
-        />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        <!-- Our custom stylesheets -->
-        <link rel="stylesheet" type="text/css" href="/css/stylesheet.css" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/courseDetails.css" />
 
-        <script>
-            if (!sessionStorage.getItem("isLoggedIn")) {
-                window.location = "/login";
-            }
-        </script>
+    <!-- Our custom stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css" />
 
-        <%- include("../partials/styling.ejs") %>
-    </head>
+    <script>
+        if (!sessionStorage.getItem("isLoggedIn")) {
+            window.location = "/login";
+        }
+    </script>
 
-    <body>
-        <%- include("../partials/navbar.ejs") %>
+    <%- include("../partials/styling.ejs") %>
+</head>
 
-        
-            <script> 
-                console.log("testing");
+<body>
+    <%- include("../partials/navbar.ejs") %>
+
+    <script>
+        console.log("testing");
                 // console.log( <%- JSON.stringify(values) %>);
-            </script>
-            <div class="container main">
-                <div class="row">
-                    <div class="col-4">
-                        <%- include('../partials/courseDetailsCard', {title: values.name,
-                        content: values.teacher, backgroundColor: "bg-danger", code: id}) %>
-                    </div>
-                    <div class="col-8">
-                        <% Object.keys(values).forEach(function(prop) { console.log(prop)});%> 
-                        <% Object.keys(values.messages).forEach(function(prop) { %>
-                            <%- include('../partials/messageCard', {content:
-                            values.messages[prop].question, courseId: id, messageId: prop, likes: values.messages[prop].likes}) %> 
-                            <% });%>
+    </script>
 
-                        <!-- form -->
-                        <div class="card-body py-1">
-                            <form class="form-inline">
+    <div class="container main">
+        <div class=" row height-75">
+            <div class="col-4">
+                <%- include('../partials/courseDetailsCard', {title: values.name,
+                        content: values.teacher, backgroundColor: "bg-danger", code: id}) %>
+            </div>
+            <div class="card col-8 scroll height-75">
+                <% Object.keys(values).forEach(function(prop) { console.log(prop)});%>
+                <% Object.keys(values.messages).forEach(function(prop) { %>
+                <%- include('../partials/messageCard', {content:
+                            values.messages[prop].question, courseId: id, messageId: prop, likes: values.messages[prop].likes}) %>
+                <% });%>
+
+                <!-- form -->
+                <div class="card-body py-1">
+                    <form class="form-inline w-100 d-flex flex-column">
+                        <div class="row w-100">
+                            <div class="col">
                                 <div class="form-group mb-2">
-                                    <label for="questionInput" class="sr-only">Question</label>
-                                    <input
-                                        type="text"
-                                        class="form-control-plaintext border"
-                                        id="questionInput"
-                                        style="width: 100%;"
-                                    />
+                                    <label for="questionInput" class="sr-only ">Question</label>
+                                    <input type="text" class="form-control-plaintext border" id="questionInput"
+                                        placeholder="What's your question?" style="width: 100%;" />
                                 </div>
-                                <a href="/course/<%- id %>"><button type="button" class="btn btn-primary mb-2" onclick="askQuestion('<%- id %>')">Ask!</button></a>
-                            </form>
+                            </div>
+                            <div class="col">
+                                <a href="/course/<%- id %>"><button type="button" class="btn btn-primary mb-2"
+                                        onclick="askQuestion('<%- id %>')">Ask!</button></a>
+                            </div>
                         </div>
+                    </form>
                 </div>
             </div>
-            
-            </div>
+        </div>
 
-            <!-- <button onclick="getAllCourses()">Get Course</button> -->
-        
+    </div>
 
-        <%- include("../partials/footer.ejs") %>
+    <!-- <button onclick="getAllCourses()">Get Course</button> -->
 
-        <!-- Firebase -->
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-database.js"></script>
 
-        <!-- TODO: Add SDKs for Firebase products that you want to use
+    <%- include("../partials/footer.ejs") %>
+
+    <!-- Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
     https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
 
-        <!-- Pull needed files for bootstrap -->
-        <%- include("../partials/bootstrap.ejs") %>
+    <!-- Pull needed files for bootstrap -->
+    <%- include("../partials/bootstrap.ejs") %>
 
-        <script src="/js/courseDetails.js"></script>
-        <script src="/js/firebaseHelper.js"></script>
-    </body>
+    <script src="/js/courseDetails.js"></script>
+    <script src="/js/firebaseHelper.js"></script>
+</body>
+
 </html>

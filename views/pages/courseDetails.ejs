@@ -24,6 +24,10 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
+        <link
+            rel="stylesheet"
+            href="/css/courseDetails.css"
+        />
 
         <!-- Our custom stylesheets -->
         <link rel="stylesheet" type="text/css" href="/css/stylesheet.css" />
@@ -40,38 +44,46 @@
     <body>
         <%- include("../partials/navbar.ejs") %>
 
-        <div class="mainContent container">
+        
             <script> 
                 console.log("testing");
                 // console.log( <%- JSON.stringify(values) %>);
             </script>
-            <%- include('../partials/courseDetailsCard', {title: values.name,
-            content: values.teacher, backgroundColor: "bg-danger", code: id}) %>
-            
-            <% Object.keys(values).forEach(function(prop) { console.log(prop)});%> 
-            <% Object.keys(values.messages).forEach(function(prop) { %>
-                <%- include('../partials/messageCard', {content:
-                values.messages[prop].question, courseId: id, messageId: prop, likes: values.messages[prop].likes}) %> 
-                <% });%>
-
-            <!-- form -->
-            <div class="card-body py-1">
-                <form class="form-inline">
-                    <div class="form-group mb-2">
-                        <label for="questionInput" class="sr-only">Question</label>
-                        <input
-                            type="text"
-                            class="form-control-plaintext border"
-                            id="questionInput"
-                            style="width: 100%;"
-                        />
+            <div class="container main">
+                <div class="row">
+                    <div class="col-4">
+                        <%- include('../partials/courseDetailsCard', {title: values.name,
+                        content: values.teacher, backgroundColor: "bg-danger", code: id}) %>
                     </div>
-                    <a href="/course/<%- id %>"><button type="button" class="btn btn-primary mb-2" onclick="askQuestion('<%- id %>')">Ask!</button></a>
-                </form>
+                    <div class="col-8">
+                        <% Object.keys(values).forEach(function(prop) { console.log(prop)});%> 
+                        <% Object.keys(values.messages).forEach(function(prop) { %>
+                            <%- include('../partials/messageCard', {content:
+                            values.messages[prop].question, courseId: id, messageId: prop, likes: values.messages[prop].likes}) %> 
+                            <% });%>
+
+                        <!-- form -->
+                        <div class="card-body py-1">
+                            <form class="form-inline">
+                                <div class="form-group mb-2">
+                                    <label for="questionInput" class="sr-only">Question</label>
+                                    <input
+                                        type="text"
+                                        class="form-control-plaintext border"
+                                        id="questionInput"
+                                        style="width: 100%;"
+                                    />
+                                </div>
+                                <a href="/course/<%- id %>"><button type="button" class="btn btn-primary mb-2" onclick="askQuestion('<%- id %>')">Ask!</button></a>
+                            </form>
+                        </div>
+                </div>
+            </div>
+            
             </div>
 
             <!-- <button onclick="getAllCourses()">Get Course</button> -->
-        </div>
+        
 
         <%- include("../partials/footer.ejs") %>
 

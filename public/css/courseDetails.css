@@ -1,0 +1,22 @@
+.like-button {
+    float: right;
+}
+
+img {
+    width: 5vh;
+    display: inline-block
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.main {
+    padding-top: 3vh;
+    min-height: 100%;
+}
+
+.card-text {
+    margin-bottom: 0;
+    padding-top: .5vh;
+}

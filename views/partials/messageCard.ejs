@@ -6,27 +6,23 @@
 - backgroundColor -->
 
 <!-- This is to be used with row layout, good for responsiveness -->
-<div class="col mb-4">
-    <div <% if(!locals.backgroundColor) locals.backgroundColor="" %>
-        class="card <%= backgroundColor %>" >
-        <!-- Large sectioned off header -->
-        <% if(locals.header) {%>
-        <h5 class="card-header"><%= header %></h5>
-        <% } %>
+<div class="mb-4">
+    <div class="card"><% if(!locals.backgroundColor) locals.backgroundColor="" %>
+        
 
         <div class="card-body py-1">
-            <!-- Separetly spaced title -->
-
-            <% if(locals.title) {%>
-            <h5 class="card-title"><%= title %></h5>
-            <% } %>
 
             <!-- Main content -->
             <% if(locals.content) {%>
-            <p class="card-text"><%= content %></p>
+            <p class="card-text inline-block"><%= content %></p>
             <% } %>
 
-            <a href="/course/<%- id %>"><button onclick="likeQuestion('<%-courseId%>', '<%-messageId%>')"><%= likes%></button></a>
+            <a class="inline-block like-button" onclick="location.reload()">
+                <button onclick="likeQuestion('<%-courseId%>', '<%-messageId%>')">
+                    <img src="https://psmag.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_600/MTI3NTgxNjIxNTQ0MDY1NTAy/facebook-like.webp"></img>
+                    <%= likes%>
+                </button>
+            </a>
 
         </div>
 

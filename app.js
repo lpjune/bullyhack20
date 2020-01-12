@@ -50,6 +50,16 @@ app.get("/createCourse", function(req, res) {
     res.render(__dirname + "/views/pages/createCourse.ejs");
 });
 
+app.get("/course/:id", function(req, res) {
+    let ref = firebase.database().ref("/courses/" + req.params.id + "/");
+    let promise = ref.once("value").then(snapshot => {
+        // console.log(snapshot.val());
+        // return snapshot.val();
+        console.log(snapshot.val());
+        res.render(__dirname + "/views/pages/courseDetails.ejs", {values: snapshot.val(), id: req.params.id});
+    });
+})
+
 // about page
 app.get("/messages", function(req, res) {
     res.render("pages/messages");

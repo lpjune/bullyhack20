@@ -47,7 +47,7 @@
             </script>
             <% Object.keys(values).forEach(function(prop) { console.log(prop) });%>
             <% Object.keys(values).forEach(function(prop) { %>
-                <%- include('../partials/customCard', {title: values[prop].name, content: values[prop].teacher, backgroundColor: "bg-danger"}) %>           
+                <%- include('../partials/courseCard', {title: values[prop].name, content: values[prop].teacher, backgroundColor: "bg-danger", code: prop}) %>           
             <% });%>
             
             <!-- <button onclick="getAllCourses()">Get Course</button> -->

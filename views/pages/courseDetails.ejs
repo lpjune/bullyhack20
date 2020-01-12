@@ -41,14 +41,13 @@
         <%- include("../partials/navbar.ejs") %>
 
         <div class="mainContent">
-            <script>
-                window.onload = function() {
-                    getAllCourses()
-                    }
+            <script> 
+                console.log("testing");
+                // console.log( <%- JSON.stringify(values) %>);
             </script>
-            <% var ok = "OKAY" %>
-            <%- include('../partials/customCard', {title: ok, content: "teh stuff y'know man", backgroundColor: "bg-light"}) %>
-
+                <%- include('../partials/messageCard', {title: values.name, content: values.teacher, backgroundColor: "bg-danger", code: id}) %>           
+            
+            
             <!-- <button onclick="getAllCourses()">Get Course</button> -->
         </div>
 

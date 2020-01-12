@@ -47,7 +47,7 @@ app.get("/:uid", function (req, res) {
         let ref = firebase.database().ref("/courses/");
 
         if(userCourses == null){
-            res.render("pages/index", { });
+            res.render("pages/index", {values: {}});
             return;
         } 
 

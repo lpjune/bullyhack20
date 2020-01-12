@@ -1,0 +1,23 @@
+body {
+    background: url("../img/login.jpg") center no-repeat;
+    background-repeat: no-repeat;
+    background-position: 50% 35%;
+    display: block;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 2vw;
+}
+
+h3 {
+    text-align: center;
+}
+
+.card {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-top: 10%
+}

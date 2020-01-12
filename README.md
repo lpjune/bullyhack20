@@ -1,4 +1,4 @@
-# WhatsThat?
+# Hand Up!
 This is the result of BullyHack2020, a 24 hour hackathon oragnized by MLH and Mississippi State University. This app was used to learn Node.js, EJS templating, and JavaScript. Demo time was at 1:00pm on January 12, 2020. 
 
 ### Team Members:

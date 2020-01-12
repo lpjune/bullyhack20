@@ -32,10 +32,10 @@
     <div class="container main">
         <div class=" row height-75">
             <div class="col-4">
-                <%- include('../partials/courseDetailsCard', {title: values.name,
-                        content: values.teacher, backgroundColor: "bg-danger", code: id}) %>
+                <%- include('../partials/courseDetailsCard', {header: values.name,
+                        content: values.teacher, backgroundColor: "bg-danger", code: id, img: values.image}) %>
             </div>
-            <div class="card col-8 scroll height-75">
+            <div class="card col-8 scroll height-75 shadow">
                 <% Object.keys(values).forEach(function(prop) { console.log(prop)});%>
                 <% Object.keys(values.messages).forEach(function(prop) { %>
                 <%- include('../partials/messageCard', {content:

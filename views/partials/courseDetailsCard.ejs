@@ -6,32 +6,37 @@
 - backgroundColor -->
 
 <!-- This is to be used with row layout, good for responsiveness -->
-<div class="card mb-4 height-75">
-    <div <% if(!locals.backgroundColor) locals.backgroundColor="" %>
-        class="card height-100 <%= backgroundColor %>" >
+<div class="card mb-4 height-75 shadow">
         
-        <!-- Large sectioned off header -->
-        <% if(locals.header) {%>
-        <h5 class="card-header"><%= header %></h5>
+    <!-- Large sectioned off header -->
+    <% if(locals.header) {%>
+    <h2 class="center-text pt-3 pb-2"><%= header %></h2>
+    <% } %>
+    
+    <% if(locals.img) {%>
+    <p><img class="course-img" src='<%-img%>' alt="card image"></p>
+    <% } %>
+
+    <div class="card-body py-1">
+        <!-- Separetly spaced title -->
+
+        <% if(locals.code) {%>
+        <h5 class="card-title center-text"><%= code %></h5>
         <% } %>
 
-        <div class="card-body py-1">
-            <!-- Separetly spaced title -->
-
-            <% if(locals.title) {%>
-            <h5 class="card-title"><%= title %></h5>
-            <% } %>
-
-            <!-- Main content -->
-            <% if(locals.content) {%>
-            <p class="card-text"><%= content %></p>
-            <% } %>
-            <a href="/course/<%-code%>"><button class="btn btn-light" onclick="addCourseToUser(sessionStorage.getItem('userId'), '<%-code%>')">Add Course</button></a>
+        <!-- Main content -->
+        <% if(locals.content) {%>
+        <p class="card-text center-text">Teacher: <%= content %></p>
+        <% } %>
+        <div class="center-text">
+            <a href="/course/<%-code%>">
+                <button class="btn btn-primary mt-2" onclick="addCourseToUser(sessionStorage.getItem('userId'), '<%-code%>')">Add Course</button>
+            </a>
         </div>
-
-        <!-- Ending footer -->
-        <% if(locals.footer) {%>
-        <div class="card-footer py-1"><%= footer %></div>
-        <% } %>
     </div>
+
+    <!-- Ending footer -->
+    <% if(locals.footer) {%>
+    <div class="card-footer py-1"><%= footer %></div>
+    <% } %>
 </div>

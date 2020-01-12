@@ -1,6 +1,6 @@
 {
-  "name": "Name Website",
-  "short_name": "NameWebsite",
+  "name": "Hand Up",
+  "short_name": "HandUp",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F4F4F4",

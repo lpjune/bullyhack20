@@ -41,25 +41,15 @@
         <%- include("../partials/navbar.ejs") %>
 
         <div class="mainContent">
-            <script>
-                window.onload = function() {
-                    getAllCourses().then(
-                        result => {
-                            console.log("I got to here");
-                            console.log(result);
-                            for (const key in result) {
-                                if (result.hasOwnProperty(key)) {
-                                    const course = result[key];
-                                    console.log(course);
-                                }
-                            }
-                        }, 
-                        error => {});
-                }
-                
-                
+            <script> 
+                console.log("testing");
+                // console.log( <%- JSON.stringify(values) %>);
             </script>
-
+            <% Object.keys(values).forEach(function(prop) { console.log(prop) });%>
+            <% Object.keys(values).forEach(function(prop) { %>
+                <%- include('../partials/customCard', {title: values[prop].name, content: values[prop].teacher, backgroundColor: "bg-danger"}) %>           
+            <% });%>
+            
             <!-- <button onclick="getAllCourses()">Get Course</button> -->
         </div>
 

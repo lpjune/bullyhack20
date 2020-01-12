@@ -45,6 +45,12 @@ app.get("/:uid", function (req, res) {
     let promise = ref.once("value").then(snapshot => {
         let userCourses = snapshot.val();
         let ref = firebase.database().ref("/courses/");
+
+        if(userCourses == null){
+            res.render("pages/index", { });
+            return;
+        } 
+
         ref.once('value').then(snapshot => {
             let allCourses = snapshot.val();
             for (const key in userCourses) {

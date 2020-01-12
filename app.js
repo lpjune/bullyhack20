@@ -48,7 +48,7 @@ app.get('/search/:searchQuery', function(req, res) {
             }
           }
       }).then(result => {
-        res.render("partials/searchContents", { values: foundCourses });
+        res.render("partials/courseListing", { values: foundCourses });
       });
 })
 
@@ -77,7 +77,7 @@ app.get("/user/:uid", function (req, res) {
         let ref = firebase.database().ref("/courses/");
 
         if(userCourses == null){
-            res.render("pages/index", {values: {}});
+            res.render("partials/courseListing", {values: {}});
             return;
         } 
 
@@ -89,7 +89,7 @@ app.get("/user/:uid", function (req, res) {
                 }
             }
         }).then(result => {
-            res.render("pages/index", { values: coursesDetails });
+            res.render("partials/courseListing", { values: coursesDetails });
         });
     });
     // return promise;

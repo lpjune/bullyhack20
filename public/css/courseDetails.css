@@ -13,8 +13,10 @@
     padding: 0px;
 }
 
+
 .main {
     padding-top: 3vh;
+    padding-bottom: 3vh;
     height: 100%;
 }
 
@@ -28,7 +30,7 @@
 }
 
 .height-75 {
-    height: 90%;
+    height: 80%;
 }
 
 .w-100{

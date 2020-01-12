@@ -47,17 +47,6 @@ function postCourse(id, name, teacher) {
         });
 }
 
-// getQuestion
-function getQuestionForCourse(id) {
-    firebase
-        .database()
-        .ref("courses/" + id + "/messages")
-        .set({
-            question: name,
-            likes: 0
-        });
-}
-
 function addUser(user) {
     let promise = firebase.database().ref("/users/" + user.uid).once("value").then(snapshot => {
         if (!snapshot.val()) {
@@ -71,6 +60,17 @@ function addUser(user) {
                 });
         }
     });
+}
+
+function addCourseToUser(userId, courseId) {
+    console.log(userId);
+    console.log(courseId);
+    firebase
+        .database()
+        .ref("users/" + userId + "/courses")
+        .update({
+            [courseId]: true,
+        });
 }
 
 // postQuestion
@@ -89,14 +89,10 @@ function postQuestionToCourse(id, question) {
         });
 }
 
-function likeQuestion(id, question) {
+function likeQuestion(courseId, questionId) {
     var ref = firebase
         .database()
-        .ref("courses")
-        .child(id)
-        .child("messages")
-        .child("message")
-        .child("likes");
+        .ref("courses/" + courseId + "/messages/" + questionId).child("likes")
     ref.transaction(function (likes) {
         if (likes) {
             likes = likes + 1;
@@ -105,11 +101,4 @@ function likeQuestion(id, question) {
     });
 }
 
-function addCourseToUser(userId, courseId) {
-    firebase
-        .database()
-        .ref("users/" + userId + "/courses")
-        .set({
-            [courseId]: true,
-        });
-}
+

@@ -3,6 +3,12 @@ function searchForCourse(){
 
   let pattern = /\w+/g;
   if (!pattern.test(searchQuery)) {
+    var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            document.getElementById("mainContent").innerHTML = this.responseText;
+            };
+          xhttp.open("GET", "/user/"+sessionStorage.getItem('userId'), true);
+          xhttp.send();
     return;
   }
 

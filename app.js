@@ -35,16 +35,9 @@ app.get('/login', function (req, res) {
 });
 
 // index page
-// app.get("/", function(req, res) {
-//     let ref = firebase.database().ref("/courses/");
-//     let promise = ref.once("value").then(snapshot => {
-//         // console.log(snapshot.val());
-//         // return snapshot.val();
-//         console.log(snapshot.val());
-//         res.render("pages/userRedirect", {values: snapshot.val()});
-//     });
-//     // return promise;
-// });
+app.get("/", function(req, res) {
+    res.render("pages/index", {values: snapshot.val()});
+});
 
 app.get("/:uid", function (req, res) {
     let ref = firebase.database().ref("/users/" + req.params.uid + '/courses');

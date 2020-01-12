@@ -53,11 +53,11 @@ app.get('/search/:searchQuery', function(req, res) {
 })
 
 function courseMatches(searchQuery, courseKey, allCourses) {
-  if (courseKey.includes(searchQuery)) {
+  if (courseKey.toLowerCase().includes(searchQuery)) {
     return true;
   } else {
     let course = allCourses[courseKey];
-    if (course.teacher.includes(searchQuery) || course.name.includes(searchQuery)) {
+    if (course.teacher.toLowerCase().includes(searchQuery) || course.name.includes(searchQuery)) {
       return true;
     }
   }

@@ -36,7 +36,7 @@ app.get('/login', function (req, res) {
 
 // index page
 app.get("/", function(req, res) {
-    res.render("pages/index", {values: snapshot.val()});
+    res.render("pages/index");
 });
 
 app.get("/:uid", function (req, res) {

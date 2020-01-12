@@ -71,7 +71,11 @@ function addUser(user) {
 
 // postQuestion
 function postQuestionToCourse(id, question) {
-    var newPostKey = firebase.database().ref().child('posts').push().key;
+    var newPostKey = firebase
+        .database()
+        .ref()
+        .child("posts")
+        .push().key;
     firebase
         .database()
         .ref("courses/" + id + "/messages/" + newPostKey)
@@ -95,4 +99,13 @@ function likeQuestion(id, question) {
         }
         return likes;
     });
+}
+
+function addCourseToUser(userId, courseId) {
+    firebase
+        .database()
+        .ref("users/" + userId + "/courses")
+        .set({
+            [courseId]: true,
+        });
 }

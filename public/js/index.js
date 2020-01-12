@@ -1,4 +1,9 @@
 function displayCourses() {
-    
-    console.log(getAllCourses())
+
+    for (const key in courses) {
+        if (courses.hasOwnProperty(key)) {
+            const courses = courses[key];
+            
+        }
+    }
 }

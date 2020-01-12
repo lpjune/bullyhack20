@@ -30,12 +30,11 @@ function getCourse(id) {
 
 function getAllCourses() {
     let ref = firebase.database().ref("/courses/");
-    
-    ref.once("value").then(snapshot => {
-        console.log(snapshot.val());
-        //Returns an object with course
+    let promise = ref.once("value").then(snapshot => {
+        // console.log(snapshot.val());
         return snapshot.val();
     });
+    return promise;
 }
 
 function postCourse(id, name, teacher) {

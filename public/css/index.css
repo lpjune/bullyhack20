@@ -25,3 +25,12 @@ img {
     height: 25vh;
     width: 100%
 }
+
+.scroll {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.dashboard{
+    padding-bottom: 10%;
+}

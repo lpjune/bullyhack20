@@ -1,8 +1,14 @@
 function searchForCourse(){
   let searchQuery = document.getElementById("search").value;
+
+  let pattern = /\w+/g;
+  if (!pattern.test(searchQuery)) {
+    return;
+  }
+  
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-    
+    document.getElementById("mainContent").innerHTML = this.responseText;
     };
   xhttp.open("GET", "search?search="+searchQuery, true);
   xhttp.send();

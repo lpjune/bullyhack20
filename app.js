@@ -38,11 +38,6 @@ app.get('/login', function (req, res) {
 app.get('/search', function(req, res) {
   console.log(req.query);
   let searchQuery = req.query['search'];
-
-  let pattern = /\w+/g;
-  if (!pattern.test(searchQuery)) {
-    return;
-  }
   let foundCourses = {};
 
   let ref = firebase.database().ref("/courses/");

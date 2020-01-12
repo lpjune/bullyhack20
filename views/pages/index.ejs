@@ -43,8 +43,19 @@
         <div class="mainContent">
             <script>
                 window.onload = function() {
-                    getAllCourses()
-                    }
+                    getAllCourses().then(
+                        result => {
+                            console.log("I got to here");
+                            console.log(result);
+                            for (const key in result) {
+                                if (result.hasOwnProperty(key)) {
+                                    const course = result[key];
+                                    console.log(course);
+                                }
+                            }
+                        }, 
+                        error => {});
+                }
                 
                 
             </script>

@@ -37,11 +37,12 @@
             </div>
             <div class="card col-8 height-100 shadow">
                 <div class="card-body scroll">
-                    <% Object.keys(values).forEach(function(prop) { console.log(prop)});%>
+                    <% if(values != null && values.messages != null){ %>
                     <% Object.keys(values.messages).forEach(function(prop) { %>
                     <%- include('../partials/messageCard', {content:
                             values.messages[prop].question, courseId: id, messageId: prop, likes: values.messages[prop].likes}) %>
                     <% });%>
+                    <% } %>
                 </div>
 
 

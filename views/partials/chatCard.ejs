@@ -1,14 +1,36 @@
+<!-- Possible inputs:
+- header
+- title
+- content
+- footer -->
+
 <!-- This is to be used with row layout, good for responsiveness -->
 <div class="col mb-4">
-  <div class="card">
+  <div
+    <% if(!locals.backgroundColor)  locals.backgroundColor=''%>
+    class="card <%= backgroundColor %>"
+  >
     <!-- Large sectioned off header -->
-    <p class="card-header"><%= header %></p>
-    <div class="card-body">
+    <% if(locals.header) {%>
+    <h5 class="card-header"><%= header %></h5>
+    <% } %>
+
+    <div class="card-body py-1">
       <!-- Separetly spaced title -->
-      <h6 class="card-title"><%= title %></h6>
+
+      <% if(locals.title) {%>
+      <h5 class="card-title"><%= title %></h5>
+      <% } %>
+
       <!-- Main content -->
+      <% if(locals.content) {%>
       <p class="card-text"><%= content %></p>
+      <% } %>
     </div>
-    <p class="card-footer"><%= footer %></p>
+
+    <!-- Ending footer -->
+    <% if(locals.footer) {%>
+    <div class="card-footer py-1"><%= footer %></div>
+    <% } %>
   </div>
 </div>

@@ -111,7 +111,7 @@ app.get("/messages", function (req, res) {
     res.render("pages/messages");
 });
 
-http.listen(process.env.PORT || 3000, function(){    console.log('Server running at http://${hostname}:${port}/', hostname, port);});
+http.listen(process.env.PORT || 3000, function(){    console.log('Hi');});
 
 io.on("connection", function (socket) {
     console.log("a user connected");

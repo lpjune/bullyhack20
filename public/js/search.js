@@ -10,7 +10,7 @@ function searchForCourse(){
   xhttp.onreadystatechange = function() {
     document.getElementById("mainContent").innerHTML = this.responseText;
     };
-  xhttp.open("GET", "/search/"+searchQuery, true);
+  xhttp.open("GET", "/search/"+searchQuery.toLowerCase(), true);
   xhttp.send();
 }
 

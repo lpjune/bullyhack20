@@ -9,6 +9,7 @@ let uiConfig = {
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
             console.log(authResult);
+            addUser(authResult.user);
             sessionStorage.setItem('userEmail', authResult.user.email);
             sessionStorage.setItem('isLoggedIn', true);
             return true;

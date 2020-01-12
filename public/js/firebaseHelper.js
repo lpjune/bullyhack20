@@ -52,4 +52,15 @@ function getQuestionForCourse(id) {
     
 }
 
+function addUser(user) {
+    firebase
+        .database()
+        .ref("users/" + user.uid)
+        .set({
+            displayName: user.displayName,
+            email: user.email,
+            courses: []
+        });
+}
+
 // postQuestion

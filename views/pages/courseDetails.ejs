@@ -41,18 +41,35 @@
         <%- include("../partials/navbar.ejs") %>
 
         <div class="mainContent">
-            <script> 
+            <script>
                 console.log("testing");
                 // console.log( <%- JSON.stringify(values) %>);
             </script>
-                <%- include('../partials/courseDetailsCard', {title: values.name, content: values.teacher, backgroundColor: "bg-danger", code: id}) %>   
-                
-                <% Object.keys(values).forEach(function(prop) { console.log(prop) });%>
-                <% Object.keys(values.messages).forEach(function(prop) { %>
-                    <%- include('../partials/messageCard', {content: values.messages[prop].question}) %>           
-                <% });%>
-            
-            
+            <%- include('../partials/courseDetailsCard', {title: values.name,
+            content: values.teacher, backgroundColor: "bg-danger", code: id}) %>
+            <% Object.keys(values).forEach(function(prop) { console.log(prop)
+            });%> <% Object.keys(values.messages).forEach(function(prop) { %>
+            <%- include('../partials/messageCard', {content:
+            values.messages[prop].question}) %> <% });%>
+
+            <!-- form -->
+            <div class="card-body py-1">
+                <form class="form-inline">
+                    <div class="form-group mb-2">
+                        <label for="staticEmail2" class="sr-only">Email</label>
+                        <input
+                            type="text"
+                            class="form-control-plaintext border"
+                            id="staticEmail2"
+                            style="width: 100%;"
+                        />
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">
+                        Ask!
+                    </button>
+                </form>
+            </div>
+
             <!-- <button onclick="getAllCourses()">Get Course</button> -->
         </div>
 
@@ -70,7 +87,7 @@
         <!-- Pull needed files for bootstrap -->
         <%- include("../partials/bootstrap.ejs") %>
 
-        <script src="js/index.js"></script>
+        <script src="js/courseDetails.js"></script>
         <script src="js/firebaseHelper.js"></script>
     </body>
 </html>

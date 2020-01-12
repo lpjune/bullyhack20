@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Create a Course</title>
+    <!-- Pull in all style imports -->
+    <%- include("../partials/styling.ejs") %>
+</head>
+
+<body>
+    <!-- Pull in the navbar -->
+    <%- include("../partials/navbar.ejs") %>
+
+    <div class="mainContent container mt-5">
+        <form class="card">
+          <!-- Title of form -->
+          <h4 class="card-header">Create a course chat</h4>
+
+          <div class="card-body">
+            <div class="card-text">
+
+              <!-- Form contents -->
+              <div class="form-group">
+                <label for="courseCodeInput"> Course Code </label>
+                <input type="text" class="form-control" id="courseCodeInput" aria-describedby="courseCode" placeholder="Enter the course code (MA2203-09)">
+                <small id="courseCode" class="form-text text-muted">This is how students will find your course chat</small>
+              </div>
+              <div class="form-group">
+                <label for="courseName"> Course Name </label>
+                <input type="text" class="form-control" id="courseNameInput" aria-describedby="courseName" placeholder="Enter the course name (Intro to Mathematics)">
+                <small id="courseName" class="form-text text-muted">Course's name or short description</small>
+              </div>
+              <div class="form-group">
+                <label for="instructorNameInput"> Course Name </label>
+                <input type="text" class="form-control" id="instructorNameInput" aria-describedby="instructorName" placeholder="Enter the instructor name (Dr. Sarah Lee)">
+                <small id="instructorName" class="form-text text-muted">Instructor's title, first, and last name</small>
+              </div>
+
+              <!-- Submit and cancel buttons -->
+              <button type="button" class="btn btn-primary mr-3" onclick="createCourse()">Create</button>
+              <button type="button" class="btn btn-danger" onclick="cancel()">Cancel</button>
+            </div>
+            
+          </div>
+        </form>
+    </div>
+    
+    <!-- Pull in theme selector footer -->
+    <%- include("../partials/themeSelector.ejs") %>
+
+    <!-- Page specific JS -->
+    <script src="/js/createCourse.js"></script>
+
+    <!-- Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDTAhixj2O8Ny5gRIWK8DQcSTcJMImDPhA",
+            authDomain: "bullyhack20.firebaseapp.com",
+            databaseURL: "https://bullyhack20.firebaseio.com",
+            projectId: "bullyhack20",
+            storageBucket: "bullyhack20.appspot.com",
+            messagingSenderId: "8373032571",
+            appId: "1:8373032571:web:092b74f947433e1f30b4de",
+            measurementId: "G-6484FT1EB9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- Our Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+    </script>
+    <!-- <script src="index.js"></script> -->
+</body>
+
+</html>

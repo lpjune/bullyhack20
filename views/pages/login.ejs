@@ -1,49 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+    <head>
+        <title>Help Me Login</title>
+        <%- include("../partials/styling.ejs") %>
 
-<head>
-    <title>Help Me Login</title>
-    <%- include("../partials/styling.ejs") %>
+        <!-- Firebase UI -->
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
+        />
 
-    <!-- Firebase UI -->
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
+        />
+        <link type="text/css" rel="stylesheet" href="/css/login.css" />
+    </head>
 
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-</head>
-
-<body>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
+    <body>
+        <!-- The surrounding HTML is left untouched by FirebaseUI.
      Your app may use that space for branding, controls and other customizations.-->
-    <div class="content jumbotron">
-        <h1 class="text-center">Help Me</h1>
-    </div>
+        <div class="card z-depth-2" >
+            <h1>Welcome</h1>
+            <h3>🙋‍♀️</h3>
+            <div id="firebaseui-auth-container"></div>
+            <div id="loader">Loading...</div>
+        </div>
 
-    <div id="firebaseui-auth-container"></div>
-        <div id="loader">Loading...</div>
-
-    <!-- Firebase -->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+        <!-- Firebase -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
       https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
 
-    <script src="js/firebaseHelper.js"></script>
-
-    <!-- Pull needed files for bootstrap -->
-    <%- include("../partials/bootstrap.ejs") %>
-
-    <!-- Our Scripts -->
-    <script>console.log("some text here")</script>
-    <script>
-        console.log('heck');
-    </script>
-    <script src="/js/login.js"></script>
-</body>
-
+        <script src="js/firebaseHelper.js"></script>
+        <!-- Pull needed files for bootstrap -->
+        <%- include("../partials/bootstrap.ejs") %>
+        <!-- Our Scripts -->
+        <script>
+            console.log("some text here");
+        </script>
+        <script>
+            console.log("heck");
+        </script>
+        <script src="/js/login.js"></script>
+    </body>
 </html>

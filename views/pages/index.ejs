@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Help Me</title>
-        <%- include("../partials/styling.ejs") %>
 
-        <script>
-            if (!sessionStorage.getItem("isLoggedIn")) {
-                window.location = "/login";
-            }
-        </script>
-    </head>
+<head>
+    <title>Help Me</title>
+    <%- include("../partials/styling.ejs") %>
 
-    <body>
-        <%- include("../partials/navbar.ejs") %>
+    <script>
+        if (!sessionStorage.getItem("isLoggedIn")) {
+            window.location = "/login";
+        }
+    </script>
+</head>
 
-        <div class="container">
-          <form class="form-inline mt-3">
-            <input
-                class="form-control col-lg-11 col-10"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-            />
+<body>
+    <%- include("../partials/navbar.ejs") %>
+
+    <div class="container">
+        <form class="form-inline mt-3">
+            <input class="form-control col-lg-11 col-10" type="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-primary my-2 my-sm-0 col-lg-1 col-2" type="button">
                 Search
             </button>
-          </form>
+        </form>
+    </div>
+
+    <div class="mainContent container">
+        <script>
+            console.log("testing");
+        </script>
+        <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2">
+            <% Object.keys(values).forEach(function(prop) { %>
+            <%- include('../partials/courseCard', {header: values[prop].name, content: values[prop].teacher, backgroundColor: "bg-secondary", code: prop}) %>
+            <% });%>
         </div>
+        <!-- <button onclick="getAllCourses()">Get Course</button> -->
+    </div>
 
-        <div class="mainContent container">
-            <script> 
-                console.log("testing");
-            </script>
-            <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2">
-              <% if(locals.value) {%>
-                <% Object.keys(values).forEach(function(prop) { %>
-                    <%- include('../partials/courseCard', {header: values[prop].name, content: values[prop].teacher, backgroundColor: "bg-secondary", code: prop}) %>
-                <% });%>
-              <% } %>
-            </div>
-            <!-- <button onclick="getAllCourses()">Get Course</button> -->
-        </div>
+    <%- include("../partials/footer.ejs") %>
 
-        <%- include("../partials/footer.ejs") %>
+    <!-- Pull needed files for FireBase -->
+    <%- include("../partials/firebase.ejs") %>
 
-        <!-- Pull needed files for FireBase -->
-        <%- include("../partials/firebase.ejs") %>
+    <!-- Pull needed files for bootstrap -->
+    <%- include("../partials/bootstrap.ejs") %>
+</body>
 
-        <!-- Pull needed files for bootstrap -->
-        <%- include("../partials/bootstrap.ejs") %>
-    </body>
 </html>

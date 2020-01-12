@@ -6,7 +6,7 @@
 - backgroundColor -->
 
 <!-- This is to be used with row layout, good for responsiveness -->
-<div class="col mb-4">
+<div class="col my-3">
   <div
     <% if(!locals.backgroundColor)  locals.backgroundColor=''%>
     class="card <%= backgroundColor %>"
@@ -27,7 +27,7 @@
       <% if(locals.content) {%>
       <p class="card-text"><%= content %></p>
       <% } %>
-      <a href='/course/<%-code%>'><button >Course Details</button></a>
+      <a href='/course/<%-code%>'><button class="btn btn-primary">Course Details</button></a>
     </div>
 
     <!-- Ending footer -->

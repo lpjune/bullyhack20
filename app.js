@@ -111,8 +111,7 @@ app.get("/messages", function (req, res) {
     res.render("pages/messages");
 });
 
-app.listen(port);
-console.log(port + " is the magic port");
+http.listen(process.env.PORT || 3000, function(){    console.log('Server running at http://${hostname}:${port}/', hostname, port);});
 
 io.on("connection", function (socket) {
     console.log("a user connected");

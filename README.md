@@ -25,5 +25,5 @@ This app allows the audience to anonymously post questions or comments during a 
 ---
 
 ## Access via posted server
-- Via Heroku at ()[bullyhack20.herokuapp.com]
-- Via purhcased domain at handup.online
+- Via Heroku at [bullyhack20.herokuapp.com](bullyhack20.herokuapp.com)
+- Via purhcased domain at [www.handup.online](www.handup.online)

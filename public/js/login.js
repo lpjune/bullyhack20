@@ -10,7 +10,7 @@ let uiConfig = {
             // or whether we leave that to developer to handle.
             console.log(authResult);
             addUser(authResult.user);
-            sessionStorage.setItem('userEmail', authResult.user.email);
+            sessionStorage.setItem('userId', authResult.user.uid);
             sessionStorage.setItem('isLoggedIn', true);
             return true;
         },

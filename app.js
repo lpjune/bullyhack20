@@ -39,7 +39,7 @@ app.get("/", function(req, res) {
     res.render("pages/userRedirect");
 });
 
-app.get("/:uid", function (req, res) {
+app.get("/user/:uid", function (req, res) {
     let ref = firebase.database().ref("/users/" + req.params.uid + '/courses');
     let coursesDetails = {};
     let promise = ref.once("value").then(snapshot => {

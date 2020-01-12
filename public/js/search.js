@@ -1,15 +1,11 @@
 function searchForCourse(){
   let searchQuery = document.getElementById("search").value;
-  $.ajax({ url: 'localhost:3000/search?search='+searchQuery
-      , type: 'GET'
-      , dataType: 'html'
-    })
-  .done(function(data) {
-    console.log(data);
-  })
-  .fail(function() {
-    console.log("Something went wrong!");
-  });
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    
+    };
+  xhttp.open("GET", "search?search="+searchQuery, true);
+  xhttp.send();
 }
 
 function courseMatches(searchQuery, courseKey, allCourses) {

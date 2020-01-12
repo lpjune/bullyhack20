@@ -36,27 +36,40 @@ app.get('/login', function (req, res) {
 
 // search courses
 app.get('/search', function(req, res) {
-  let searchQuery = req.query[search];
+  console.log(req.query);
+  let searchQuery = req.query['search'];
 
   let pattern = /\w+/g;
   if (!pattern.test(searchQuery)) {
     return;
   }
-  console.log("Good");
   let foundCourses = {};
 
   let ref = firebase.database().ref("/courses/");
-      ref.once('value').then(snapshot => {
+      let promise = ref.once('value').then(snapshot => {
           let allCourses = snapshot.val();
           for (const courseKey in allCourses) {
             if (courseMatches(searchQuery, courseKey, allCourses)) {
               foundCourses[courseKey] = allCourses[courseKey];
+              // console.log(foundCourses[courseKey]);
             }
           }
+      }).then(result => {
+        res.render("partials/searchContents", { values: foundCourses });
       });
-
-  res.render("partials/searchContents", { values: foundCourses });
 })
+
+function courseMatches(searchQuery, courseKey, allCourses) {
+  if (courseKey.includes(searchQuery)) {
+    return true;
+  } else {
+    let course = allCourses[courseKey];
+    if (course.teacher.includes(searchQuery) || course.name.includes(searchQuery)) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // index page
 app.get("/", function(req, res) {

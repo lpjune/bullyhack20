@@ -47,10 +47,12 @@
             </script>
             <%- include('../partials/courseDetailsCard', {title: values.name,
             content: values.teacher, backgroundColor: "bg-danger", code: id}) %>
-            <% Object.keys(values).forEach(function(prop) { console.log(prop)
-            });%> <% Object.keys(values.messages).forEach(function(prop) { %>
-            <%- include('../partials/messageCard', {content:
-            values.messages[prop].question}) %> <% });%>
+            
+            <% Object.keys(values).forEach(function(prop) { console.log(prop)});%> 
+            <% Object.keys(values.messages).forEach(function(prop) { %>
+                <%- include('../partials/messageCard', {content:
+                values.messages[prop].question, courseId: id, messageId: prop, likes: values.messages[prop].likes}) %> 
+                <% });%>
 
             <!-- form -->
             <div class="card-body py-1">

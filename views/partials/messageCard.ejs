@@ -25,6 +25,9 @@
             <% if(locals.content) {%>
             <p class="card-text"><%= content %></p>
             <% } %>
+
+            <a href="/course/<%- id %>"><button onclick="likeQuestion('<%-courseId%>', '<%-messageId%>')"><%= likes%></button></a>
+
         </div>
 
         <!-- Ending footer -->

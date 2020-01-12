@@ -45,7 +45,12 @@
                 console.log("testing");
                 // console.log( <%- JSON.stringify(values) %>);
             </script>
-                <%- include('../partials/messageCard', {title: values.name, content: values.teacher, backgroundColor: "bg-danger", code: id}) %>           
+                <%- include('../partials/courseDetailsCard', {title: values.name, content: values.teacher, backgroundColor: "bg-danger", code: id}) %>   
+                
+                <% Object.keys(values).forEach(function(prop) { console.log(prop) });%>
+                <% Object.keys(values.messages).forEach(function(prop) { %>
+                    <%- include('../partials/messageCard', {content: values.messages[prop].question}) %>           
+                <% });%>
             
             
             <!-- <button onclick="getAllCourses()">Get Course</button> -->

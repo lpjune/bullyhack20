@@ -55,7 +55,7 @@ app.get('/search', function(req, res) {
           }
       });
 
-  return res.render("");
+  res.render("partials/searchContents", { values: foundCourses });
 })
 
 // index page

@@ -1,22 +1,15 @@
 function searchForCourse(){
   let searchQuery = document.getElementById("search").value;
-
-  let pattern = /\w+/g;
-  if (!pattern.test(searchQuery)) {
-    return;
-  }
-  console.log("Good");
-  let foundCourses = {};
-
-  let ref = firebase.database().ref("/courses/");
-      ref.once('value').then(snapshot => {
-          let allCourses = snapshot.val();
-          for (const courseKey in allCourses) {
-            if (courseMatches(searchQuery, courseKey, allCourses)) {
-              foundCourses[courseKey] = allCourses[courseKey];
-            }
-          }
-      });
+  $.ajax({ url: 'localhost:3000/search?search='+searchQuery
+      , type: 'GET'
+      , dataType: 'html'
+    })
+  .done(function(data) {
+    console.log(data);
+  })
+  .fail(function() {
+    console.log("Something went wrong!");
+  });
 }
 
 function courseMatches(searchQuery, courseKey, allCourses) {

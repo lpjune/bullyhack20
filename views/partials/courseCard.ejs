@@ -7,24 +7,30 @@
 
 <!-- This is to be used with row layout, good for responsiveness -->
 <div class="col my-3">
-  <div class="card"
+  <div class="card shadow">
     <!-- Large sectioned off header -->
     <% if(locals.header) {%>
-    <h3><%= header %></h3>
+    <h3 class="center-text py-3"><%= header %></h3>
+    <% } %>
+
+    <% if(locals.img) {%>
+    <p><img src='<%-img%>' alt="card image"></p>
     <% } %>
 
     <div class="card-body py-1">
       <!-- Separetly spaced title -->
 
-      <% if(locals.title) {%>
-      <h5 class="card-title"><%= title %></h5>
+      <% if(locals.code) {%>
+      <h5 class="card-title center-text"><%= code %></h5>
       <% } %>
 
       <!-- Main content -->
       <% if(locals.content) {%>
-      <p class="card-text"><%= content %></p>
+      <p class="card-text center-text">Teacher: <%= content %></p>
       <% } %>
-      <a href='/course/<%-code%>'><button class="btn btn-primary mb-2">Course Details</button></a>
+      <div class="center-text">
+        <a href='/course/<%-code%>'><button class="btn btn-primary mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i>Course Details</button></a>
+      </div>
     </div>
 
     <!-- Ending footer -->

@@ -1,10 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Help Me Login</title>
-    <script>
-        window.location = '/user/' + sessionStorage.getItem('userId');
-    </script>
-</head>
+  <title>Help Me</title>
+  <%- include("../partials/styling.ejs") %>
+
+  <script>
+          if (!sessionStorage.getItem("isLoggedIn")) {
+              window.location = "/login";
+          }
+      </script>
+  </head>
+
+  <body>
+      <%- include("../partials/navbar.ejs") %>
+
+      <div class="container">
+        <form class="form-inline mt-3">
+          <input class="form-control col-lg-11 col-10" type="text" placeholder="Search" aria-label="Search" id="search" onkeypress="keyPressEvent()"/>
+          <button class="btn btn-primary my-2 my-sm-0 col-lg-1 col-2" type="button" onclick="searchForCourse()"> Search </button>
+        </form>
+      </div>
+
+      <div class="container" id="mainContent">
+        <script>
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            document.getElementById("mainContent").innerHTML = this.responseText;
+            };
+          xhttp.open("GET", "/user/"+sessionStorage.getItem('userId'), true);
+          xhttp.send();
+        </script>
+      </div>
+
+    <%- include("../partials/footer.ejs") %>
+
+    <!-- Pull needed files for FireBase -->
+    <%- include("../partials/firebase.ejs") %>
+
+    <script src="/js/search.js"></script>
+
+    <!-- Pull needed files for bootstrap -->
+    <%- include("../partials/bootstrap.ejs") %>
+</body>
+
 </html>

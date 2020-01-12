@@ -2,7 +2,7 @@
   "name": "helpme",
   "version": "1.0.0",
   "description": "A webapp designed to help me study",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
     "ejs": "^3.0.1",
     "ejs-lint": "^1.0.1",

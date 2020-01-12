@@ -36,7 +36,7 @@ app.get('/login', function (req, res) {
 
 // index page
 app.get("/", function(req, res) {
-    res.render("pages/index");
+    res.render("pages/userRedirect");
 });
 
 app.get("/:uid", function (req, res) {

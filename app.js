@@ -27,8 +27,8 @@ app.get("/createCourse", function(req, res) {
 });
 
 // about page
-app.get("/about", function(req, res) {
-    res.render("pages/about");
+app.get("/messages", function(req, res) {
+    res.render("pages/messages");
 });
 
 app.listen(port);

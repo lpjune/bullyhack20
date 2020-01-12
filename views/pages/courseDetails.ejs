@@ -30,12 +30,12 @@
     <%- include("../partials/navbar.ejs") %>
 
     <div class="container main">
-        <div class=" row height-75">
-            <div class="col-4">
+        <div class="scroll row height-75">
+            <div class="col-4 height-100">
                 <%- include('../partials/courseDetailsCard', {header: values.name,
                         content: values.teacher, backgroundColor: "bg-danger", code: id, img: values.image}) %>
             </div>
-            <div class="card col-8 height-75 shadow">
+            <div class="card col-8 height-100 shadow">
                 <div class="card-body scroll">
                     <% Object.keys(values).forEach(function(prop) { console.log(prop)});%>
                     <% Object.keys(values.messages).forEach(function(prop) { %>

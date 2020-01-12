@@ -30,6 +30,7 @@ function getCourse(id) {
 
 function getAllCourses() {
     let ref = firebase.database().ref("/courses/");
+    
     ref.once("value").then(snapshot => {
         console.log(snapshot.val());
         //Returns an object with course
@@ -43,13 +44,36 @@ function postCourse(id, name, teacher) {
         .ref("courses/" + id)
         .set({
             name: name,
-            teacher: teacher,
+            teacher: teacher
         });
 }
 
 // getQuestion
 function getQuestionForCourse(id) {
-    
+    firebase
+        .database()
+        .ref("courses/" + id + "/messages")
+        .set({
+            question: name,
+            likes: 0
+        });
 }
 
 // postQuestion
+function postQuestionToCourse(id) {}
+
+function likeQuestion(id, question) {
+    var ref = firebase
+        .database()
+        .ref("courses")
+        .child(id)
+        .child("messages")
+        .child("message")
+        .child("likes");
+    ref.transaction(function(likes) {
+        if (likes) {
+            likes = likes + 1;
+        }
+        return likes;
+    });
+}

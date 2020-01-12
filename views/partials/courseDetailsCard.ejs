@@ -6,9 +6,9 @@
 - backgroundColor -->
 
 <!-- This is to be used with row layout, good for responsiveness -->
-<div class=" card mb-4">
+<div class="card mb-4 height-75">
     <div <% if(!locals.backgroundColor) locals.backgroundColor="" %>
-        class="card <%= backgroundColor %>" >
+        class="card height-100 <%= backgroundColor %>" >
         
         <!-- Large sectioned off header -->
         <% if(locals.header) {%>
@@ -26,7 +26,7 @@
             <% if(locals.content) {%>
             <p class="card-text"><%= content %></p>
             <% } %>
-            <a href="/course/<%-code%>"><button onclick="addCourseToUser(sessionStorage.getItem('userId'), '<%-code%>')">Add Course</button></a>
+            <a href="/course/<%-code%>"><button class="btn btn-light" onclick="addCourseToUser(sessionStorage.getItem('userId'), '<%-code%>')">Add Course</button></a>
         </div>
 
         <!-- Ending footer -->

@@ -5,6 +5,8 @@
   <title>Help Me</title>
   <%- include("../partials/styling.ejs") %>
 
+  <link rel="manifest" href="/manifest.json">
+
   <script>
           if (!sessionStorage.getItem("isLoggedIn")) {
               window.location = "/login";

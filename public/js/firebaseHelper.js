@@ -92,6 +92,7 @@ function likeQuestion(courseId, questionId) {
         if (likes) {
             likes = likes + 1;
         }
+        location.reload();
         return likes;
     });
 }

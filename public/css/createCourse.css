@@ -1,0 +1,8 @@
+.scroll {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.mainContent{
+    padding-bottom: 9em;
+}

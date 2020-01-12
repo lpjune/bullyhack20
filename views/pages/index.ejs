@@ -3,6 +3,7 @@
 
 <head>
     <title>Algorithm Study Site</title>
+    
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,6 +21,8 @@
         window.location = '/login';
     }
     </script>
+
+    <%- include("../partials/styling.ejs") %>
 </head>
 
 <body>
@@ -28,7 +31,10 @@
 
     <div class="mainContent">
         Hello World
+        <button onclick="getCourse('MAT2203-09')">Get Course</button>
     </div>
+
+    <%- include("../partials/themeSelector.ejs") %>
 
     <!-- Firebase -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -36,25 +42,9 @@
     <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-database.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
-      https://firebase.google.com/docs/web/setup#available-libraries -->
+    https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
 
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDTAhixj2O8Ny5gRIWK8DQcSTcJMImDPhA",
-            authDomain: "bullyhack20.firebaseapp.com",
-            databaseURL: "https://bullyhack20.firebaseio.com",
-            projectId: "bullyhack20",
-            storageBucket: "bullyhack20.appspot.com",
-            messagingSenderId: "8373032571",
-            appId: "1:8373032571:web:092b74f947433e1f30b4de",
-            measurementId: "G-6484FT1EB9"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-    </script>
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -67,12 +57,8 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <!-- Our Scripts -->
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io();
-    </script>
-    <!-- <script src="index.js"></script> -->
+    <script src="js/index.js"></script>
+    <script src="js/firebaseHelper.js"></script>
 </body>
 
 </html>

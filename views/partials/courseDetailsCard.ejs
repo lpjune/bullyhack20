@@ -6,9 +6,10 @@
 - backgroundColor -->
 
 <!-- This is to be used with row layout, good for responsiveness -->
-<div class="col mb-4">
+<div class=" card mb-4">
     <div <% if(!locals.backgroundColor) locals.backgroundColor="" %>
         class="card <%= backgroundColor %>" >
+        
         <!-- Large sectioned off header -->
         <% if(locals.header) {%>
         <h5 class="card-header"><%= header %></h5>

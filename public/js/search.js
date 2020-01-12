@@ -14,7 +14,7 @@ function searchForCourse(){
   xhttp.send();
 }
 
-function customEnterKey() {
+function keyPressEvent() {
   let key = window.event.keyCode;
 
   // If the user has pressed enter

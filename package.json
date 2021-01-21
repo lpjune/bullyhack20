@@ -11,7 +11,7 @@
     "firebase": "^7.5.2",
     "heroku": "^7.35.0",
     "nodemon": "^2.0.2",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   },
   "devDependencies": {},
   "scripts": {

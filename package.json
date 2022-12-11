@@ -6,7 +6,7 @@
   "dependencies": {
     "ejs": "^3.0.1",
     "ejs-lint": "^1.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-partials": "^0.3.0",
     "firebase": "^7.5.2",
     "heroku": "^7.35.0",
